@@ -1,6 +1,8 @@
 package com.sample.test.demo;
 
 import static org.testng.Assert.fail;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -34,18 +36,20 @@ public class TestBase {
     }
 
     private void initializelDriver() {
-        if (config.getBrowser().equalsIgnoreCase("chrome")) {
-            if (config.getPlatform().equalsIgnoreCase("mac")) {
-                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver/mac/chromedriver");
-            } else {
-                System.setProperty("webdriver.chrome.driver",
-                        "src/test/resources/chromedriver/windows/chromedriver.exe");
-            }
-            driver = new ChromeDriver();
-        }
-        else {
-            fail("Unsupported bfrowser " + config.getBrowser());
-        }
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+//        if (config.getBrowser().equalsIgnoreCase("chrome")) {
+//            if (config.getPlatform().equalsIgnoreCase("mac")) {
+//                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver/mac/chromedriver");
+//            } else {
+//                System.setProperty("webdriver.chrome.driver",
+//                        "src/test/resources/chromedriver/windows/chromedriver.exe");
+//            }
+//
+//        }
+//        else {
+//            fail("Unsupported browser " + config.getBrowser());
+//        }
        
     }
 
