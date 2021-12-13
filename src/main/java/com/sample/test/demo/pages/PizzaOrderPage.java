@@ -92,15 +92,6 @@ public class PizzaOrderPage {
         return this;
     }
 
-    public PizzaOrderPage validatePizzaCost(int quantity, double cost){
-        String pizzaCost = textCost.getText();
-        double totalCost = quantity * cost;
-        System.out.println("pcost "+ pizzaCost+" tocost "+totalCost);
-        //Assert.assertEquals(Double.valueOf(pizzaCost), totalCost);
-
-        return this;
-    }
-
     public PizzaOrderPage typeName(String name) {
         textName.sendKeys(name);
         return this;
@@ -134,12 +125,38 @@ public class PizzaOrderPage {
         buttonReset.click();
         return this;
     }
-    
-    public PizzaOrderPage displayPopup(String firstText, String secondText) {
-        String pText = popupText.getText();
-        System.out.println(pText);
-        return this;
 
+    public PizzaOrderPage validateSuccessPopup() {
+        String successString = "Thank you for your order!";
+        String popUpString = popupText.getText();
+        Assert.assertTrue(popUpString.contains(successString), "Popup String is: "+popUpString+ " should contain: "+ successString);
+        return this;
+    }
+
+    public PizzaOrderPage validateDefaultValues() {
+        String defaultPizza1Value = "Choose Pizza";
+        String defaultToppings1Value = "Choose a Toppings 1";
+        String defaultToppings2Value = "Choose a Toppings 2";
+
+        Select selPizza = new Select(selectPizza);
+        Select firstTopping = new Select(selectFirstTopping);
+        Select secondTopping = new Select(selectSecondTopping);
+
+        String selPizzaString = selPizza.getFirstSelectedOption().getText();
+        String firstToppingString = firstTopping.getFirstSelectedOption().getText();
+        String secondToppingString = secondTopping.getFirstSelectedOption().getText();
+
+        Assert.assertEquals(selPizzaString, defaultPizza1Value);
+        Assert.assertEquals(firstToppingString, defaultToppings1Value);
+        Assert.assertEquals(secondToppingString, defaultToppings2Value);
+
+        return this;
+    }
+
+    public PizzaOrderPage validateErroMessagePopup(String errorMessage) {
+        String popUpString = popupText.getText();
+        Assert.assertTrue(popUpString.contains(errorMessage), "Popup String is: "+popUpString+ " should contain: "+ errorMessage);
+        return this;
     }
 
 }
