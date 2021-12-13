@@ -47,14 +47,5 @@ We will be evaluating
 
 #### Test Cases
 
- 1. Verify that when user fill out all the required information user can place an order.
-
-   **Steps:**
-   
-      1. Go to the "Pizza Order Form" page.
-      2. Fill out all the required fields.
-      3. Click on the "Place Order" button.
-
-   **Expected result:**
-      One popup should show up with a success message.  
+ 1.  
 
