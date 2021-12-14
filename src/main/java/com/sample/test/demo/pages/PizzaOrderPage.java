@@ -57,19 +57,12 @@ public class PizzaOrderPage {
         this.driver = driver;
     }
 
-    public PizzaOrderPage orderPizza() {
-        PizzaToppings.EXTRACHEESE.getDisplayName();
-        PizzaTypes.LARE_NO_TOPPINGS.getCost();
-        return this;
-    }
-
     public PizzaOrderPage selectPizza(String pizzaType, double pizzaCost) {
         String pattern = "###.00";
         DecimalFormat decimalFormat = new DecimalFormat(pattern);
         String newString = pizzaType + " $" + decimalFormat.format(pizzaCost);
         Select select = new Select(selectPizza);
         select.selectByVisibleText(newString);
-
         return this;
     }
 
@@ -83,7 +76,6 @@ public class PizzaOrderPage {
     public PizzaOrderPage selectSecondTopping(String topping) {
         Select select = new Select(selectSecondTopping);
         select.selectByVisibleText(topping);
-
         return this;
     }
 
