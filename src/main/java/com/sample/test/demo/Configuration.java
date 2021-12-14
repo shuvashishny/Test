@@ -10,8 +10,6 @@ public class Configuration {
     private static final String CONFIG_FILE_NAME = "config.properties";
     private Properties configProperties;
 
-
-
     public Configuration() {
         loadProperties();
     }
@@ -31,13 +29,10 @@ public class Configuration {
         return getProperty("browser");
     }
 
-    public String getPlatform() {
-        return getProperty("platform");
-    }
-
     public String getUrl() {
         return getProperty("url");
     }
+
     public String getProperty(String propertyName) {
         return configProperties.getProperty(propertyName);
     }

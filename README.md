@@ -47,5 +47,56 @@ We will be evaluating
 
 #### Test Cases
 
- 1.  
+1. Verify that when user fill out all the required information user can place an order.
+
+   **Steps:**
+   
+      1. Go to the "Pizza Order Form" page.
+      2. Fill out all the required fields.
+      3. Click on the "Place Order" button.
+
+   **Expected result:**
+      One popup should show up with a success message.  
+
+
+2.When user click on the Reset button all the fields should show the default values.
+
+   **Steps:**
+
+   1. Go to the "Pizza Order Form" page.
+   2. Select first option from Pizza1.
+   3. Type 2 in Quantity. 
+   4. Click on the "Reset" button.
+
+   **Expected result:**
+   All fields should show the default values.
+
+3. When user select "No Topping" pizza, Toppings1 and Toppings2 fields should be disabled.
+
+   **Steps:**
+
+   1. Go to the "Pizza Order Form" page.
+   2. Select "Small 6 Slices - no toppings $6.75" option from Pizza1.
+   3. Check Toppings1 and Toppings2 fields.
+
+   **Expected result:**
+   Toppings1 and Toppings2 fields should be disabled.
+
+
+4. When user place an order without a required field then error message should show up.
+
+   **Steps:**
+
+   1. Go to the "Pizza Order Form" page.
+   2. Select "Medium 8 Slices - 2 toppings $9.75" option from Pizza1.
+   3. Select 2 toppings for Toppings1 and Toppings2 fields.
+   4. Add Quantity.
+   5. Type Name and Email.
+   6. Select Payment Info 
+   7. Click on Place Order button.
+
+   **Expected result:**
+   Error message should show, missing phone number.
+
+
 

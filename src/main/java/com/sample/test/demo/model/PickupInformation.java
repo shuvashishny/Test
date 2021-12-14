@@ -1,5 +1,7 @@
 package com.sample.test.demo.model;
 
+import java.util.Random;
+
 public class PickupInformation {
 
     private String name;
@@ -7,9 +9,9 @@ public class PickupInformation {
     private String phone;
 
     public PickupInformation() {
-        name = "Shuvashish Debnath";
-        email = "abc@gmail.com";
-        phone = "123-365-6325";
+        name = generateRandomString(10, true);
+        email = generateRandomString(8, true)+"@gmail.com";
+        phone = generateRandomString(10, false);
     }
 
     public String getName() {
@@ -22,5 +24,19 @@ public class PickupInformation {
 
     public String getPhone() {
         return phone;
+    }
+
+    private String generateRandomString(int length, boolean isString) {
+        String alphabet = "";
+        alphabet = isString? "ABCDEFGHIJKLMNOPQRSTUVWXYZ" : "0123456789";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+
+        for(int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            sb.append(randomChar);
+        }
+        return sb.toString();
     }
 }

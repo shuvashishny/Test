@@ -36,20 +36,13 @@ public class TestBase {
     }
 
     private void initializelDriver() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-//        if (config.getBrowser().equalsIgnoreCase("chrome")) {
-//            if (config.getPlatform().equalsIgnoreCase("mac")) {
-//                System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver/mac/chromedriver");
-//            } else {
-//                System.setProperty("webdriver.chrome.driver",
-//                        "src/test/resources/chromedriver/windows/chromedriver.exe");
-//            }
-//
-//        }
-//        else {
-//            fail("Unsupported browser " + config.getBrowser());
-//        }
+        if (config.getBrowser().equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
+        }
+        else {
+            fail("Unsupported browser " + config.getBrowser());
+        }
        
     }
 
