@@ -134,7 +134,7 @@ public class PizzaOrderPage {
         buttonReset.click();
         return this;
     }
-    
+
     public PizzaOrderPage displayPopup(String firstText, String secondText) {
         String pText = popupText.getText();
         System.out.println(pText);
